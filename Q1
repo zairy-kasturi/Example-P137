@@ -1,0 +1,41 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+void display(double bmi[]);
+void calculate(double mass[], double height[], double bmi[]);
+void readata(double mass[], double height[]);
+void main()
+{
+	double mass[5], height[5],bmi[5];
+	cout << " Please enter mass and height :  "<<endl;
+	readata(mass, height);
+	calculate(mass, height, bmi);
+	display(bmi);
+
+}
+
+void readata(double mass[],double height[])
+{
+	for (int i = 0; i < 5; i++)
+	{
+		cin >> mass[i] >> height[i];
+	}
+}
+
+void calculate(double mass[], double height[], double bmi[])
+{
+	for (int i = 0; i < 5; i++)
+	{
+		bmi[i] = mass[i] / pow(height[i], 2);
+	}
+}
+
+void display(double bmi[])
+{
+	for (int i = 0; i < 5; i++)
+	{
+		cout<<fixed<<setprecision(2)<<"\nThe bmi for "<< i+1 <<" student is : " <<bmi[i];
+	}
+}
